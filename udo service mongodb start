@@ -1,0 +1,11 @@
+[0;1;31m●[0m mongod.service - High-performance, schema-free document-oriented database
+   Loaded: loaded (/lib/systemd/system/mongod.service; enabled; vendor preset: enabled)
+   Active: [0;1;31mfailed[0m (Result: exit-code) since Tue 2018-02-20 12:13:05 GMT; 1s ago
+     Docs: https://docs.mongodb.org/manual
+  Process: 15165 ExecStart=/usr/bin/mongod --config /etc/mongod.conf [0;1;31m(code=exited, status=14)[0m
+ Main PID: 15165 (code=exited, status=14)
+
+Feb 20 12:13:05 pdkanew-Vostro-15-3568 systemd[1]: Started High-performance, schema-free document-oriented database.
+Feb 20 12:13:05 pdkanew-Vostro-15-3568 systemd[1]: [0;1;39mmongod.service: Main process exited, code=exited, status=14/n/a[0m
+Feb 20 12:13:05 pdkanew-Vostro-15-3568 systemd[1]: [0;1;39mmongod.service: Unit entered failed state.[0m
+Feb 20 12:13:05 pdkanew-Vostro-15-3568 systemd[1]: [0;1;39mmongod.service: Failed with result 'exit-code'.[0m
