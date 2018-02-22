@@ -1,6 +1,6 @@
 import * as express from 'express'
 export const expensesRouter = express.Router()
-import { connectToDb } from '../../dataBase'
+import {connectToDb, db} from '../../dataBase'
 import { MongoClient } from "mongodb"
 // import {returnContendOfDb} from "../models/expensesModel";
 
@@ -33,30 +33,25 @@ expensesRouter.post('/expenses', (req: express.Request, res: express.Response) =
     })
 }))
 
-expensesRouter.put('/expenses/_id', function(req: express.Request, res: express.Response){
+/*expensesRouter.put('/expenses/5a8b1b5172e51d6104b121e0', function(req: express.Request, res: express.Response){
     return connectToDb().then((client: MongoClient) => {
         const collection = client.db('expenses').collection('expenses')
-        collection.findOneAndUpdate({_id: "5a8b1b5172e51d6104b121e0"}, {$set: {
+            collection.findOneAndUpdate({_id: "5a8b1b5172e51d6104b121e0"}, {$set: {
             title: "mega update",
             purchaseDate: "01.05.2018",
             amount: 32423423
         }})
-        res.json('finally')
         })
     })
+})*/
+
+expensesRouter.put('/expenses/:5a8b1b5172e51d6104b121e0', function(req: express.Request, res: express.Response){
+    return connectToDb().then((client: MongoClient) => {
+    const collection = client.db('expenses').collection('expenses')
+        res.send(collection.findOneAndUpdate({_id: "5a8b1b5172e51d6104b121e0"}, {$set: {
+            title: "mega update",
+            purchaseDate: "01.05.2018",
+            amount: 32423423
+        }}))
+    })
 })
-
-
-
-
-      /*  collection.updateOne({_id: "5a8b1b5172e51d6104b121e0"}, { $set: {
-                    title: "megaupdate",
-                    purchaseDate: "01.05.2018",
-                    amount: 32423423
-                }},
-            function(err, callback){
-                if(err) res.json(err)
-                else res.json('finally')
-            })
-    })*/
-

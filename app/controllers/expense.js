@@ -32,25 +32,25 @@ exports.expensesRouter.get('/expenses', function (req, res) {
         });
     });
 }));
-exports.expensesRouter.put('/expenses/_id', function (req, res) {
+/*expensesRouter.put('/expenses/5a8b1b5172e51d6104b121e0', function(req: express.Request, res: express.Response){
+    return connectToDb().then((client: MongoClient) => {
+        const collection = client.db('expenses').collection('expenses')
+            collection.findOneAndUpdate({_id: "5a8b1b5172e51d6104b121e0"}, {$set: {
+            title: "mega update",
+            purchaseDate: "01.05.2018",
+            amount: 32423423
+        }})
+        })
+    })
+})*/
+exports.expensesRouter.put('/expenses/:5a8b1b5172e51d6104b121e0', function (req, res) {
     return dataBase_1.connectToDb().then(function (client) {
         var collection = client.db('expenses').collection('expenses');
-        collection.findOneAndUpdate({ _id: "5a8b1b5172e51d6104b121e0" }, { $set: {
+        res.send(collection.findOneAndUpdate({ _id: "5a8b1b5172e51d6104b121e0" }, { $set: {
                 title: "mega update",
                 purchaseDate: "01.05.2018",
                 amount: 32423423
-            } });
-        res.json('finally');
+            } }));
     });
 });
-/*  collection.updateOne({_id: "5a8b1b5172e51d6104b121e0"}, { $set: {
-              title: "megaupdate",
-              purchaseDate: "01.05.2018",
-              amount: 32423423
-          }},
-      function(err, callback){
-          if(err) res.json(err)
-          else res.json('finally')
-      })
-})*/
 //# sourceMappingURL=expense.js.map

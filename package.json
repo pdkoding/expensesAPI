@@ -20,7 +20,6 @@
     "@types/mongodb": "^3.0.5",
     "circular-json": "^0.5.1",
     "ejs": "^2.5.7",
-    "kerberos": "0.0.23",
     "mongodb": "^3.0.2"
   }
 }
